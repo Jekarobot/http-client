@@ -1,0 +1,142 @@
+/*!******************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/styles.css ***!
+  \******************************************************************/
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  #add-ticket-btn {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  #add-ticket-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  #tickets-list {
+    margin-top: 20px;
+  }
+  
+  .ticket {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.ticket .header {
+  display: flex;
+  align-items: center;
+}
+
+.ticket .status-checkbox {
+  margin-right: 10px;
+}
+  
+.ticket .title {
+  flex-grow: 1;
+}
+
+  
+.ticket .actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.ticket .created {
+  font-size: 0.9em;
+  color: #666;
+  margin-top: 5px;
+  text-align: end;
+}
+
+.ticket .description {
+  display: none;
+  margin-top: 10px;
+  font-size: 0.9em;
+}
+
+.ticket .description.visible {
+  display: block;
+}
+  
+  /* Модальное окно */
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hidden {
+    display: none;
+  }
+  
+  .modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 4px;
+    width: 300px;
+  }
+  
+  .modal-content label {
+    display: block;
+    margin-top: 10px;
+  }
+  
+  .modal-content input,
+  .modal-content textarea {
+    width: 100%;
+    margin-top: 5px;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+  }
+  
+  .modal-content button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  #modal-ok-btn {
+    background-color: #28a745;
+    color: white;
+  }
+  
+  #modal-cancel-btn {
+    background-color: #dc3545;
+    color: white;
+  }
+  
+  .modal-content button:hover {
+    opacity: 0.8;
+  }
+  

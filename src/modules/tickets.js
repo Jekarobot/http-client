@@ -2,11 +2,10 @@ import { getTickets, createTicket, updateTicket, deleteTicket } from './api';
 import { openModal, closeModal, openDeleteConfirmModal, closeDeleteConfirmModal } from './modal';
 
 const ticketsList = document.getElementById('tickets-list');
-let editedTicketId = null; // Переместили переменную сюда
+let editedTicketId = null;
 
 export async function loadTickets() {
     const tickets = await getTickets();
-    console.log('Loaded tickets:', tickets); // Логируем загруженные тикеты
     ticketsList.innerHTML = '';
     tickets.forEach(ticket => {
         const ticketElement = document.createElement('div');
@@ -34,7 +33,6 @@ export async function loadTickets() {
 
         ticketElement.querySelector('.edit-btn').addEventListener('click', () => {
             editedTicketId = ticket.id;
-            console.log('Editing ticket:', editedTicketId); // Логируем ID редактируемого тикета
             openModal(ticket.name, ticket.description, true);
         });
 
@@ -69,14 +67,12 @@ export async function loadTickets() {
 
 export async function addNewTicket(name, description) {
     const newTicket = await createTicket({ name, description });
-    console.log('Created new ticket:', newTicket); // Логируем созданный тикет
     closeModal();
     loadTickets();
 }
 
 export async function editTicket(id, name, description) {
     const updatedTicket = await updateTicket(id, { name, description });
-    console.log('Updated ticket:', updatedTicket); // Логируем обновленный тикет
     closeModal();
     loadTickets();
     editedTicketId = null;
@@ -84,7 +80,6 @@ export async function editTicket(id, name, description) {
 
 export async function deleteTicketFromFrontend(id) {
     await deleteTicket(id);
-    console.log('Deleted ticket ID:', id); // Логируем ID удаленного тикета
     closeDeleteConfirmModal();
     loadTickets();
 }
@@ -94,7 +89,6 @@ document.getElementById('modal-ok-btn').addEventListener('click', async () => {
     const name = document.getElementById('ticket-title').value;
     const description = document.getElementById('ticket-description').value;
     if (editedTicketId) {
-        console.log('Editing ticket ID:', editedTicketId); // Логируем ID перед редактированием
         await editTicket(editedTicketId, name, description);
         editedTicketId = null;
     } else {
